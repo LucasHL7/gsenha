@@ -28,8 +28,8 @@ const styles  = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: 200,  // Defina a largura desejada
-    height: 200,  // Defina a altura desejada
+    width: 200,
+    height: 200,
   },
   title:{
     color: "#fff",
