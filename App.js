@@ -20,6 +20,8 @@ export default function app(){
   )
 }
 
+
+//estilos//
 const styles  = StyleSheet.create({
   container:{
     flex:1,
