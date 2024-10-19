@@ -19,7 +19,7 @@ const useStorage = () => {
 
             pass.push(value)
 
-            await AsyncStorage.setItem(key, pass, JSON.stringify(pass))
+            await AsyncStorage.setItem(key, JSON.stringify(pass))
 
         } catch (error) {
             console.log("ERRO AO SALVAR", error)

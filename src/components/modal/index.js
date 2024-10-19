@@ -1,15 +1,14 @@
 import { View, Text, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 import * as Clipboard from "expo-clipboard"
-import {useStorage} from "../../hooks"
+import useStorage from "../../hooks/useStorage"
 
-export function ModalPass({pass, handleClose}) {
-    const {saveItem} = useStorage();
+export function ModalPass({ pass, handleClose }) {
+    const { saveItem } = useStorage();
 
-    async function handleCopy(){
+    async function handleCopy() {
         await Clipboard.setStringAsync(pass)
-        alert ("Senha Salva")
-
-        await saveItem('@pass, pass')
+        await saveItem('@pass', pass)
+        alert("Senha Salva")
 
         handleClose();
     }
@@ -28,11 +27,11 @@ export function ModalPass({pass, handleClose}) {
                 </Pressable>
 
                 <View style={styles.buttomArea}>
-                    <TouchableOpacity style={styles.button}onPress={handleClose}>
+                    <TouchableOpacity style={styles.button} onPress={handleClose}>
                         <Text style={styles.text}>Voltar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.button, styles.buttonSave]}>
+                    <TouchableOpacity style={[styles.button, styles.buttonSave]} onPress={handleCopy}>
                         <Text style={styles.buttonSaveText}>Salvar</Text>
                     </TouchableOpacity>
 
@@ -86,13 +85,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 14,
         marginBottom: 14,
-        padding:8
+        padding: 8
     },
-    buttonSave:{
+    buttonSave: {
         backgroundColor: "#0A2143",
         borderRadius: 8
     },
-    buttonSaveText:{
+    buttonSaveText: {
         color: "#F3F3FF",
         fontWeight: 'bold'
     }
